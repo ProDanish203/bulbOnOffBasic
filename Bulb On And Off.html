@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Bulb On and Off Using Javascrpit</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all .2s linear;
+            font-family: sans-serif;
+            text-transform: capitalize;
+            text-decoration: none;
+            list-style: none;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+            padding: 20px;
+        }
+        body.dark{
+            background-color: #010103;
+        }
+        body.dark .container{
+            /* background-color: #fff; */
+            box-shadow: 5px 10px 10px rgba(255, 255, 255, .1),
+            -10px -5px 10px rgba(255, 255, 255, .1);
+        }
+        body.dark .heading{
+            color: #fff;
+        }
+        body.dark .btn{
+            background-color: #fff;
+            color: #010103;
+        }
+        .container{
+            max-width: 500px;
+            width: 100%;
+            min-height: 250px;
+            padding: 20px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, .2),
+            -5px -5px 10px rgba(0, 0, 0, .2);
+            border-radius: 5px;
+            text-align: center;
+        }
+        .heading{
+            font-size: 30px;
+            font-weight: 700;
+        }
+        .bulb{
+            margin-top: 20px;
+        }
+        .bulb img{
+            height: 200px;
+        }
+        .btn{
+            text-transform: uppercase;
+            padding: 10px 30px;
+            background-color: #010103;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+        .buttons{
+            margin-top: 20px;
+        }
+        .btn:active{
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h2 class="heading">Light Bulb On And Off</h2>
+        <div class="bulb">
+            <img src="off.png" alt="bulb" id="bulb">
+            <div class="buttons">
+                <button class="btn" id="on">On</button>
+                <button class="btn" id="off">Off</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const bulb = document.getElementById("bulb");
+        const on = document.getElementById("on");
+        const off = document.getElementById("off");
+
+        on.addEventListener("click", () => {
+            bulb.src='on.png';
+            document.querySelector("body").classList.add("dark");
+        });
+        off.addEventListener("click", () => {
+            bulb.src='off.png';
+            document.querySelector("body").classList.remove("dark");
+        });
+
+    </script>
+
+</body>
+</html>
